@@ -1,0 +1,147 @@
+body {
+    background-color: #f8f9fa;
+    padding-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    background-color: #5a3d5c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: #4a2d4c;
+}
+
+.order-card {
+    display: none;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.order-card.show {
+    display: block;
+}
+
+.balance-card, .stats-card, .notification {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.balance-info {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.modal-dialog {
+    max-width: 400px;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: none;
+    background-color: #6c757d;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.modal-footer {
+    border-top: none;
+    justify-content: center;
+}
+
+.submit-btn {
+    background-color: #d4a017;
+    color: white;
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.2rem;
+}
+
+.submit-btn:hover {
+    background-color: #b58414;
+}
+
+.order-details {
+    font-size: 1rem;
+    color: #333;
+}
+
+.order-number {
+    color: #ff5733;
+    font-weight: bold;
+}
+
+.expected-income {
+    color: #ff9800;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.product-image {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+.detail-box {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px 0;
+    color: white;
+    font-weight: bold;
+}
+
+.detail-box.order-number {
+    background-color: #ff5733;
+}
+
+.detail-box.transaction-time {
+    background-color: #28a745;
+}
+
+.detail-box.order-amount {
+    background-color: #007bff;
+}
+
+.detail-box.commissions {
+    background-color: #17a2b8;
+}
+
+.detail-box.expected-income {
+    background-color: #ff9800;
+}

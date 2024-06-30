@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Admin & Order Management</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="container">
+    <!-- Admin Panel Card -->
+    <div class="card">
+        <h2>Admin Panel</h2>
+        <div class="form-group">
+            <label for="deposit-amount">Set Deposit Amount (USDT):</label>
+            <input type="number" id="deposit-amount" class="form-control" placeholder="Enter amount">
+        </div>
+        <button class="btn" onclick="setDepositAmount()">Set Deposit</button>
+        <button class="btn" onclick="grantAccess()">Grant Access</button>
+        <button class="btn" onclick="revokeAccess()">Revoke Access</button>
+        <button class="btn btn-danger" onclick="resetProgram()">Reset Program</button>
+    </div>
+
+    <!-- Balance and Stats Section -->
+    <div class="card balance-card">
+        <h2>Account Balance</h2>
+        <h3 id="account-balance">0.00 USDT</h3>
+    </div>
+    <div class="card stats-card">
+        <div class="row text-center">
+            <div class="col">
+                <p><strong id="submitted-orders">0</strong><br>Submitted Orders</p>
+            </div>
+            <div class="col">
+                <p><strong id="earned-money">0.00</strong> USDT<br>Earned Money</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification for Insufficient Balance -->
+    <div id="notification" class="card notification" style="display: none;">
+        <h4>Notification</h4>
+        <p id="notification-message"></p>
+    </div>
+
+    <!-- Increase Balance Section -->
+    <div class="card">
+        <h2>Increase Account Balance</h2>
+        <div class="form-group">
+            <label for="increase-amount">Enter Amount to Increase (USDT):</label>
+            <input type="number" id="increase-amount" class="form-control" placeholder="Enter amount">
+        </div>
+        <button class="btn" onclick="increaseAccountBalance()">Increase Balance</button>
+    </div>
+
+    <!-- Grab Order Section -->
+    <div class="card">
+        <h2>Order Management</h2>
+        <div class="row">
+            <div class="col">
+                <div class="balance-info">
+                    <strong>Deposited Money:</strong> <span id="deposited-money">0.00 USDT</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="balance-info">
+                    <strong>Total Commission:</strong> <span id="total-commission">0.00 USDT</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="balance-info">
+                    <strong>Submitted Orders:</strong> <span id="order-submitted">0</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="balance-info">
+                    <strong>Earned Money:</strong> <span id="money-earned">0.00 USDT</span>
+                </div>
+            </div>
+        </div>
+        <button class="btn" onclick="grabOrder()">Grab Order</button>
+    </div>
+
+    <!-- Order Details Card -->
+    <div id="order-container" class="card order-card">
+        <h4>Order Details</h4>
+        <hr>
+        <div class="order-details">
+            <p><strong>Product:</strong> <span id="order-product"></span></p>
+            <p><strong>Price:</strong> <span id="order-price"></span> USDT</p>
+            <p><strong>Quantity:</strong> <span id="order-quantity"></span></p>
+            <p><strong>Order Amount:</strong> <span id="order-amount"></span> USDT</p>
+            <p><strong>Commissions:</strong> <span id="order-commission"></span> USDT</p>
+        </div>
+        <div class="text-center">
+            <button class="btn" onclick="submitOrder()">Submit Order</button>
+        </div>
+    </div>
+</div>
+
+<!-- Order Confirmation Modal -->
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Amazon</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <p class="order-details detail-box order-number">Order Nos: <span id="modal-order-number"></span></p>
+                    <img id="modal-product-image" src="" alt="Product Image" class="product-image my-3">
+                    <p class="order-details" id="modal-product-description"></p>
+                    <p class="order-details detail-box transaction-time">Transaction time: <span id="modal-transaction-time"></span></p>
+                    <p class="order-details detail-box order-amount">Order amount: <span id="modal-order-amount"></span> USDT</p>
+                    <p class="order-details detail-box commissions">Commissions: <span id="modal-commissions"></span> USDT</p>
+                    <p class="order-details detail-box expected-income">Expected income: <span id="modal-expected-income"></span> USDT</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn submit-btn" onclick="finalizeOrder()">Submit order</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
